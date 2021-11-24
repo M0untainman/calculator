@@ -93,7 +93,7 @@ perc.addEventListener("click", () => {
     // scrnUpdate(1)
 });
 decimal.addEventListener("click", () => {
-    // scrnUpdate(1)
+    addDec()
 });
 
 //variables
@@ -101,47 +101,75 @@ let ans = 0;
 let x = 0;
 let y = 0;
 let operator = null;
+let isDecimal = false;
 
 //functions
+//takes user input and creates the current number being entered
 function scrnUpdate(inNum){
     let prev = currentScrn.innerHTML;
     let newNum = prev.concat(inNum);
     currentScrn.innerHTML = newNum;
 }
 
+//adds a decimal point so that float calcs can be done
+function addDec(){
+    if (!isDecimal){
+        isDecimal = true;
+    let num = currentScrn.innerHTML;
+    currentScrn.innerHTML = num + ".";
+    }
+    else {
+        isDecimal = false;
+        let num = currentScrn.innerHTML;
+        currentScrn.innerHTML = num.slice(0,-1);
+    }
+}    
+
+//set the operator which will determine what type of math will be performed
 function getOp(inOp) {
-    x = currentScrn.innerHTML
-    formulaScrn.innerHTML = x.toString() + " " + inOp;
-    currentScrn.innerHTML = "";
-    operator = inOp;
+    if (currentScrn.innerHTML != ""){
+        x = currentScrn.innerHTML
+        formulaScrn.innerHTML = x.toString() + " " + inOp;
+        currentScrn.innerHTML = "";
+        operator = inOp;
+    }
+    else {
+        formulaScrn.innerHTML = x.toString() + " " + inOp;
+        currentScrn.innerHTML = "";
+        operator = inOp;
+    }
+    
 }
 
+//evaluates the current expression
 function getAns(){
     y = currentScrn.innerHTML;
     if (operator == "+") {
-        ans = parseInt(x) + parseInt(y);
+        ans = parseFloat(x) + parseFloat(y);
         formulaScrn.innerHTML = x.toString() + " + " +y.toString() + " ="
-        currentScrn.innerHTML = ans;
+        currentScrn.innerHTML = Math.round(ans * 100000) / 100000
+        ;
     }
     else if (operator == "-") {
-        ans = parseInt(x) - parseInt(y);
+        ans = parseFloat(x) - parseFloat(y);
         formulaScrn.innerHTML = x.toString() + " - " +y.toString() + " ="
-        currentScrn.innerHTML = ans;
+        currentScrn.innerHTML = Math.round(ans * 100000) / 100000;
     }
     else if (operator == "*") {
-        ans = parseInt(x) * parseInt(y);
+        ans = parseFloat(x) * parseFloat(y);
         formulaScrn.innerHTML = x.toString() + " * " +y.toString() + " ="
-        currentScrn.innerHTML = ans;
+        currentScrn.innerHTML = Math.round(ans * 100000) / 100000;
     }
     else if (operator == "/") {
-        ans = parseInt(x) / parseInt(y);
+        ans = parseFloat(x) / parseFloat(y);
         formulaScrn.innerHTML = x.toString() + " / " +y.toString() + " ="
-        currentScrn.innerHTML = ans;
+        currentScrn.innerHTML = Math.round(ans * 100000) / 100000;
     }
     
     
 }
 
+//refreshes the calculator so that no variables are in memory
 function clear() {
     current = "";
     formula = "";
@@ -150,8 +178,11 @@ function clear() {
     x = 0;
     y = 0;
     ans = 0;
+    operator = null;
+    isDecimal = false;
 }
 
+//allows for a backspace of current number
 function back(){
     let needsfixing = currentScrn.innerHTML;
     let fixed = needsfixing.slice(0, -1);
