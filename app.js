@@ -79,6 +79,7 @@ decimal.addEventListener("click", () => {
 //keypress functionality
 document.addEventListener('keyup', (event) => {
     let code = event.code;
+    console.log(code);
       switch(code) {
         case ("Numpad1" || "digit1"):
             scrnUpdate(1);
@@ -128,7 +129,7 @@ document.addEventListener('keyup', (event) => {
         case "NumpadAdd":
                 getOp("+");
             break;
-        case "enter" || "NumpadEnter" || "Equal":
+        case "NumpadEnter":
             getAns();
             break;
         case "NumpadDecimal" || "Period":
