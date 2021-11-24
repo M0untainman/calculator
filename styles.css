@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "digital";
+    src: url("font/digital-7/digital-7.ttf");
+}
+#calcBody{
+    background-color: black;
+    width: 290px;
+    border-radius: 5%;
+    padding: 0.5rem;
+}
+
+#mainDisplay{
+    background-color: dimgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 96%;
+    height: 50px;
+    border: 5px;
+    border-style: inset;
+    border-radius: 5%;
+}
+.display{
+    font-family: digital;
+    font-size: 1.5rem;
+}
+
+#formula{
+    text-align: left;
+}
+
+#current{
+    text-align: right;
+}
+
+#btnArea {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+
+}
+
+.btn {
+    background: #AEB5C1;
+    background-image: -webkit-linear-gradient(top, #AEB5C1, #080808);
+    background-image: -moz-linear-gradient(top, #AEB5C1, #080808);
+    background-image: -ms-linear-gradient(top, #AEB5C1, #080808);
+    background-image: -o-linear-gradient(top, #AEB5C1, #080808);
+    background-image: -webkit-gradient(to bottom, #AEB5C1, #080808);
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    color: #FFFFFF;
+    font-family: Brush Script MT;
+    font-size: 20px;
+    font-weight: 100;
+    padding: 10px;
+    -webkit-box-shadow: inset 1px 1px 20px 0 #000000;
+    -moz-box-shadow: inset 1px 1px 20px 0 #000000;
+    box-shadow: inset 1px 1px 20px 0 #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #000000 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .btn:hover {
+    border: solid #000000 1px;
+    background: #080808;
+    background-image: -webkit-linear-gradient(top, #080808, #AEB5C1);
+    background-image: -moz-linear-gradient(top, #080808, #AEB5C1);
+    background-image: -ms-linear-gradient(top, #080808, #AEB5C1);
+    background-image: -o-linear-gradient(top, #080808, #AEB5C1);
+    background-image: -webkit-gradient(to bottom, #080808, #AEB5C1);
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    text-decoration: none;
+ }
+
+ .equal{
+     grid-column: 4;
+     
+ }
+
+ }
