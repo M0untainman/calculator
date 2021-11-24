@@ -72,16 +72,16 @@ C.addEventListener("click", () => {
     clear()
 });
 bck.addEventListener("click", () => {
-    // scrnUpdate(1)
+    back();
 });
 div.addEventListener("click", () => {
-    //scrnUpdate(1)
+    getOp("/")
 });
 mult.addEventListener("click", () => {
-    // scrnUpdate(1)
+    getOp("*")
 });
 min.addEventListener("click", () => {
-    // scrnUpdate(1)
+    getOp("-")
 });
 add.addEventListener("click", () => {
     getOp("+")
@@ -123,6 +123,21 @@ function getAns(){
         formulaScrn.innerHTML = x.toString() + " + " +y.toString() + " ="
         currentScrn.innerHTML = ans;
     }
+    else if (operator == "-") {
+        ans = parseInt(x) - parseInt(y);
+        formulaScrn.innerHTML = x.toString() + " - " +y.toString() + " ="
+        currentScrn.innerHTML = ans;
+    }
+    else if (operator == "*") {
+        ans = parseInt(x) * parseInt(y);
+        formulaScrn.innerHTML = x.toString() + " * " +y.toString() + " ="
+        currentScrn.innerHTML = ans;
+    }
+    else if (operator == "/") {
+        ans = parseInt(x) / parseInt(y);
+        formulaScrn.innerHTML = x.toString() + " / " +y.toString() + " ="
+        currentScrn.innerHTML = ans;
+    }
     
     
 }
@@ -134,4 +149,11 @@ function clear() {
     currentScrn.innerHTML = "";
     x = 0;
     y = 0;
+    ans = 0;
+}
+
+function back(){
+    let needsfixing = currentScrn.innerHTML;
+    let fixed = needsfixing.slice(0, -1);
+    currentScrn.innerHTML = fixed;
 }
