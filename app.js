@@ -19,11 +19,7 @@ const min = document.querySelector(".min");
 const mult = document.querySelector(".mult");
 const div = document.querySelector(".div");
 const bck = document.querySelector(".bck");
-const mc = document.querySelector(".mc");
-const MR = document.querySelector(".MR");
 const C = document.querySelector(".C");
-const madd = document.querySelector(".mAdd");
-const mMin = document.querySelector(".mMin");
 
 //event listeners
 one.addEventListener("click", () => {
@@ -56,18 +52,6 @@ nine.addEventListener("click", () => {
 zero.addEventListener("click", () => {
     scrnUpdate(0)
 });
-mc.addEventListener("click", () => {
-    //
-});
-madd.addEventListener("click", () => {
-    // scrnUpdate(1)
-});
-mMin.addEventListener("click", () => {
-    // scrnUpdate(1)
-});
-MR.addEventListener("click", () => {
-    // scrnUpdate(1)
-});
 C.addEventListener("click", () => {
     clear()
 });
@@ -88,9 +72,6 @@ add.addEventListener("click", () => {
 });
 equal.addEventListener("click", () => {
     getAns();
-});
-perc.addEventListener("click", () => {
-    // scrnUpdate(1)
 });
 decimal.addEventListener("click", () => {
     addDec()
@@ -133,7 +114,7 @@ function getOp(inOp) {
         currentScrn.innerHTML = "";
         operator = inOp;
     }
-    else {
+    else { //allows user to change what the current operator is
         formulaScrn.innerHTML = x.toString() + " " + inOp;
         currentScrn.innerHTML = "";
         operator = inOp;
