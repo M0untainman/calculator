@@ -13,7 +13,6 @@ const nine = document.querySelector(".nine");
 const zero = document.querySelector(".zero");
 const equal = document.querySelector(".equal");
 const decimal = document.querySelector(".decimal");
-const perc = document.querySelector(".perc");
 const add = document.querySelector(".add");
 const min = document.querySelector(".min");
 const mult = document.querySelector(".mult");
@@ -75,6 +74,67 @@ equal.addEventListener("click", () => {
 });
 decimal.addEventListener("click", () => {
     addDec()
+});
+
+//keypress functionality
+document.addEventListener('keyup', (event) => {
+    let code = event.code;
+      switch(code) {
+        case ("Numpad1" || "digit1"):
+            scrnUpdate(1);
+            break;
+        case ("Numpad2" || "digit2"):
+            scrnUpdate(2);
+            break;
+        case ("Numpad3" || "digit3"):
+            scrnUpdate(3);
+            break;
+        case ("Numpad4" || "digit4"):
+            scrnUpdate(4);
+            break;
+        case ("Numpad5" || "digit5"):
+            scrnUpdate(5);
+            break;
+        case ("Numpad6" || "digit6"):
+            scrnUpdate(6);
+            break;
+        case ("Numpad7" || "digit7"):
+            scrnUpdate(7);
+            break;
+        case ("Numpad8" || "digit8"):
+            scrnUpdate(8);
+            break;
+        case ("Numpad9" || "digit9"):
+            scrnUpdate(9);
+            break;
+        case ("Numpad0" || "digit0"):
+            scrnUpdate(0);
+            break;
+        case "Backspace":
+            back();
+            break;
+        case "Delete":
+            clear();
+            break;
+        case "NumpadDivide":
+            getOp("/");
+            break;
+        case "NumpadMultiply":
+                getOp("*");
+            break;
+        case "NumpadSubtract":
+                getOp("-");
+            break;
+        case "NumpadAdd":
+                getOp("+");
+            break;
+        case "enter" || "NumpadEnter" || "Equal":
+            getAns();
+            break;
+        case "NumpadDecimal" || "Period":
+            addDec();
+            break;
+};
 });
 
 //variables
