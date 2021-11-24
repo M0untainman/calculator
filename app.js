@@ -25,11 +25,6 @@ const C = document.querySelector(".C");
 const madd = document.querySelector(".mAdd");
 const mMin = document.querySelector(".mMin");
 
-
-//variables
-let current = "0";
-let formula = ""
-
 //event listeners
 one.addEventListener("click", () => {
     scrnUpdate(1)
@@ -74,13 +69,13 @@ MR.addEventListener("click", () => {
     // scrnUpdate(1)
 });
 C.addEventListener("click", () => {
-    // scrnUpdate()
+    clear()
 });
 bck.addEventListener("click", () => {
     // scrnUpdate(1)
 });
 div.addEventListener("click", () => {
-    scrnUpdate(1)
+    //scrnUpdate(1)
 });
 mult.addEventListener("click", () => {
     // scrnUpdate(1)
@@ -89,10 +84,10 @@ min.addEventListener("click", () => {
     // scrnUpdate(1)
 });
 add.addEventListener("click", () => {
-    // scrnUpdate(1)
+    getOp("+")
 });
 equal.addEventListener("click", () => {
-    // scrnUpdate(1)
+    getAns();
 });
 perc.addEventListener("click", () => {
     // scrnUpdate(1)
@@ -101,8 +96,42 @@ decimal.addEventListener("click", () => {
     // scrnUpdate(1)
 });
 
+//variables
+let ans = 0;
+let x = 0;
+let y = 0;
+let operator = null;
+
 //functions
-function scrnUpdate(num){
-    formulaScrn.innerHTML = num;
-    currentScrn.innerHTML = num;
+function scrnUpdate(inNum){
+    let prev = currentScrn.innerHTML;
+    let newNum = prev.concat(inNum);
+    currentScrn.innerHTML = newNum;
+}
+
+function getOp(inOp) {
+    x = currentScrn.innerHTML
+    formulaScrn.innerHTML = x.toString() + " " + inOp;
+    currentScrn.innerHTML = "";
+    operator = inOp;
+}
+
+function getAns(){
+    y = currentScrn.innerHTML;
+    if (operator == "+") {
+        ans = parseInt(x) + parseInt(y);
+        formulaScrn.innerHTML = x.toString() + " + " +y.toString() + " ="
+        currentScrn.innerHTML = ans;
+    }
+    
+    
+}
+
+function clear() {
+    current = "";
+    formula = "";
+    formulaScrn.innerHTML = "";
+    currentScrn.innerHTML = "";
+    x = 0;
+    y = 0;
 }
